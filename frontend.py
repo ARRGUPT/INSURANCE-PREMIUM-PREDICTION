@@ -1,7 +1,11 @@
 import streamlit as st
 import requests
+import os
 
-API_URL = "http://localhost:8000/predict"     # "http://aws_ip_address(222.33.444):8000/predict"
+# API_URL = "http://localhost:8000/predict"     # "http://aws_ip_address(222.33.444):8000/predict"
+
+BASE_URL = os.environ.get("FASTAPI_URL", "http://localhost:8000")
+API_URL = f"{BASE_URL}/predict"
 
 st.title("Insurance Premium Category Predictor")
 st.markdown("Enter your details below:")
